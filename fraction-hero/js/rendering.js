@@ -1,6 +1,7 @@
 var device_scale = window.devicePixelRatio;
 var renderer;
 
+
 function setup_rendering() {
 
 	var width = 256, height = 1152;
@@ -8,6 +9,7 @@ function setup_rendering() {
 		{transparent: true, resolution: window.devicePixelRatio});
 	renderer.view.style.width = width;
 	renderer.view.style.height = height;
+	renderer.view.style.border = "1px solid white";
 
 	gameplay_stage = new PIXI.Container();
 
@@ -24,6 +26,7 @@ function render() {
 	switch (scene.scene_state) {
 		case "gameplay":
 			renderer.render(gameplay_stage);
+			fracbox.render();
 			break;
 		default:
 			renderer.render();

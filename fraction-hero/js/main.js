@@ -4,16 +4,19 @@ var update_time;
 
 function init_game() {
 
-	//
+	gamestate = new GameState();
+	cake = new Cake();
+	fracbox = new FractionBox();
 
 	start_game();
-	
+
 }
 
 
 function start_game() {
 	if (game_started == false) {
 		game_started = true;
+		scene.selectScene("gameplay");
 		update_time = new Date().getTime();
 		requestAnimationFrame(update);
 	}

@@ -8,7 +8,7 @@ function handleKeyInput(key, dir) {
 		key_is_down[key] = true;
 		switch(key) {
 			case "button":
-				// button_down();
+				cake.cut();
 				break;
 			default:
 				break;
@@ -29,12 +29,14 @@ function handleKeyInput(key, dir) {
 
 function onKeyDown(e) {
 	if (e.keyCode == 32) {  // button
+		e.preventDefault();
 		handleKeyInput("button", "down");
 	}
 }
 
 function onKeyUp(e) {
 	if (e.keyCode == 32) {  // button
+		e.preventDefault();
 		handleKeyInput("button", "up");
 	}
 }

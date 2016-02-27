@@ -1,0 +1,2 @@
+var CAKE_HEIGHT = 864;
+var CAKE_TOP = 144;
