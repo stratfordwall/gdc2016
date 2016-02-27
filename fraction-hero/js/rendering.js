@@ -23,13 +23,13 @@ function setup_rendering() {
 // render the current frame
 function render() {
 
-	switch (scene.scene_state) {
+	switch (scene_state) {
 		case "gameplay":
 			renderer.render(gameplay_stage);
 			fracbox.render();
 			break;
 		default:
-			renderer.render();
+			// do nothing
 			break;
 	}
 

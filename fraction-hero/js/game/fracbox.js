@@ -20,8 +20,10 @@ function FractionBox() {
 
 FractionBox.prototype.display = function() {
 
-	this.frac_text.position.set(50, 568);
 	this.frac_text.text = gamestate.target_text;
+	this.frac_text.position.y = 568;
+	this.text_x = 128 - this.frac_text.width / 2;
+	this.frac_text.position.x = this.text_x
 	this.top = 512;
 	this.bottom = 640;
 
@@ -33,7 +35,7 @@ FractionBox.prototype.update = function(delta_ms) {
 
 	if (this.ui_state_time > 1700) {
 		// make the instruction appear at the top
-		this.frac_text.position.x = interp_clamp(this.ui_state_time, 1700, 2000, 50, 80);
+		this.frac_text.position.x = interp_clamp(this.ui_state_time, 1700, 2000, this.text_x, 80);
 		this.frac_text.position.y = interp_clamp(this.ui_state_time, 1700, 2000, 576, 32);
 		this.top = interp_clamp(this.ui_state_time, 1700, 2000, 512, 16);
 		this.bottom = interp_clamp(this.ui_state_time, 1700, 2000, 640, 64);

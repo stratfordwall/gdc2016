@@ -1,5 +1,16 @@
 key_is_down = {};
 
+function button_down() {
+	switch (scene_state) {
+		case "splash":
+			selectScene("gameplay");
+			break;
+		case "gameplay":
+			gamestate.button();
+			break;
+	}
+}
+
 function handleKeyInput(key, dir) {
 
 	if (!game_started) return false;
@@ -8,7 +19,7 @@ function handleKeyInput(key, dir) {
 		key_is_down[key] = true;
 		switch(key) {
 			case "button":
-				cake.cut();
+				button_down();
 				break;
 			default:
 				break;

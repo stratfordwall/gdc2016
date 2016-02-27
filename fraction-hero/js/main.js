@@ -14,12 +14,16 @@ function init_game() {
 
 
 function start_game() {
+
 	if (game_started == false) {
 		game_started = true;
-		scene.selectScene("gameplay");
+
+		selectScene("splash");
+
 		update_time = new Date().getTime();
 		requestAnimationFrame(update);
 	}
+
 }
 
 function stop_game() {
