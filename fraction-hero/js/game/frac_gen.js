@@ -15,7 +15,8 @@ function ea(a,b){
 
 
 function frac_to_english(denominator, numerator){
-	return "English not supported yet";
+	var numrator
+	return "english not supported yet";
 }
 
 
@@ -50,7 +51,7 @@ function frac_gen(level){
 
 	var disp_frac, val_frac;
 	var fraction, numerator, denominator;
-	var denom_max = Math.min(level+3 , 20);
+	var denom_max = Math.min(level + 3, 20);
 	var denom_min = 3;
 	var addnewtype_req = 6; //we could add it to parameters too as frac_gen(level, addnewtype_req)
 
@@ -76,20 +77,20 @@ function frac_gen(level){
 
 	}
 
-	else if (leveltype==3){ // add English words
+	else if (leveltype == 3){ // add English words
 
-		fraction=random_frac(denom_min,denom_max);
-		numerator=fraction[0];
-		denominator=fraction[1];
-		disp_frac=frac_to_english(numerator,denominator);
-		val_frac=numerator*1.0/denominator;
+		fraction = random_frac(denom_min, denom_max);
+		numerator = fraction[0];
+		denominator = fraction[1];
+		disp_frac = frac_to_english(numerator, denominator);
+		val_frac = numerator*1.0/denominator;
 
 	}
 
 	else if (leveltype==4){ // sum fractions
 
-		var f1 = random_frac(denom_min,denom_max);
-		var f2 = random_frac(denom_min,denom_max);
+		var f1 = random_frac(denom_min, denom_max);
+		var f2 = random_frac(denom_min, denom_max);
 		f1[1] *= 2;
 		f2[1] *= 2;
 		disp_frac = "" + f1[0] + "/" + f1[1] + "+" + f2[0] + "/" + f2[1];

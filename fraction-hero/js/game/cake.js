@@ -13,13 +13,14 @@ function Cake() {
 
 	this.cake_sprite = new PIXI.Sprite(cake_texture);
 	this.cake_sprite.position.set(0, 576);
-	this.cake_sprite.scale.set(0.2, 0.1875);
+	this.cake_sprite.scale.set(0.25, 0.25);
 	this.cake_sprite.anchor.set(0, 0.5);
 	gameplay_stage.addChild(this.cake_sprite);
 
 	this.knife_sprite = new PIXI.Sprite(knife_texture);
 	this.knife_sprite.position.set(10, CAKE_TOP);
-	this.knife_sprite.anchor.set(0, 0.5);
+	this.knife_sprite.scale.set(0.25, 0.25);
+	this.knife_sprite.anchor.set(0, 0.444444444);
 	this.knife_sprite.alpha = 0;
 	gameplay_stage.addChild(this.knife_sprite);
 
@@ -120,7 +121,7 @@ Cake.prototype.cut = function() {
 		gamestate.score += Math.floor(10 / (Math.max(distance, 0.005) / 0.05)) * 10;
 	} else {
 		// failed cut
-		if (this.level > 2) { gamestate.loseALife(); }
+		if (gamestate.level > 2) { gamestate.loseALife(); }
 		this.barline_sprite.tint = 0xff0000;
 	}
 

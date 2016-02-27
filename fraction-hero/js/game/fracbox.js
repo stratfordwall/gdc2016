@@ -10,8 +10,9 @@ function FractionBox() {
 	this.right = 240;
 	this.thickness = 4;
 
-	this.frac_text = new PIXI.extras.BitmapText("1/2", {font: "15px Numbers", align: "center"});
+	this.frac_text = new PIXI.extras.BitmapText("1/2", {font: "15px Numbers", align: "left"});
 	this.frac_text.position.set(50, 568);
+	this.frac_text.maxWidth = 200;
 
 	gameplay_stage.addChild(this.box_g);
 	gameplay_stage.addChild(this.frac_text);
@@ -35,10 +36,10 @@ FractionBox.prototype.update = function(delta_ms) {
 
 	if (this.ui_state_time > 1700) {
 		// make the instruction appear at the top
-		this.frac_text.position.x = interp_clamp(this.ui_state_time, 1700, 2000, this.text_x, 80);
+		this.frac_text.position.x = interp_clamp(this.ui_state_time, 1700, 2000, this.text_x, 32);
 		this.frac_text.position.y = interp_clamp(this.ui_state_time, 1700, 2000, 576, 32);
 		this.top = interp_clamp(this.ui_state_time, 1700, 2000, 512, 16);
-		this.bottom = interp_clamp(this.ui_state_time, 1700, 2000, 640, 64);
+		this.bottom = interp_clamp(this.ui_state_time, 1700, 2000, 640, 128);
 	}
 
 	if (this.ui_state_time > 2000) {

@@ -1,0 +1,1 @@
+var splash_stage;

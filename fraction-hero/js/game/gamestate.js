@@ -1,3 +1,5 @@
+var heart_texture;
+
 function GameState() {
 
 	this.game_started = false;
@@ -13,11 +15,19 @@ function GameState() {
 	this.target_text = "2/3";
 	this.target = 2/3;
 
-
 	this.score_text = new PIXI.extras.BitmapText("0", {font: "15px Numbers", align: "center"});
 	this.score_text.position.set(120, 1120);
 
+	this.heart_sprites = [new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture)];
+	this.heart_sprites[0].position.set(8, 1120);
+	this.heart_sprites[1].position.set(24, 1120);
+	this.heart_sprites[2].position.set(40, 1120);
+
 	gameplay_stage.addChild(this.score_text);
+	gameplay_stage.addChild(this.heart_sprites[0]);
+	gameplay_stage.addChild(this.heart_sprites[1]);
+	gameplay_stage.addChild(this.heart_sprites[2]);
+
 
 }
 
@@ -52,7 +62,7 @@ GameState.prototype.update = function(delta_ms) {
 			this.ui_state_time += delta_ms;
 			if (this.ui_state_time > 2000) {
 				this.ui_state = "none";
-				selectScene(splash);
+				selectScene("splash");
 			}
 		}
 		return;

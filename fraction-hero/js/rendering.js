@@ -12,6 +12,7 @@ function setup_rendering() {
 	renderer.view.style.border = "1px solid white";
 
 	gameplay_stage = new PIXI.Container();
+	splash_stage = new PIXI.Container();
 
 	// add the renderer view element to the DOM
 	document.body.appendChild(renderer.view);
@@ -25,11 +26,11 @@ function render() {
 
 	switch (scene_state) {
 		case "gameplay":
-			renderer.render(gameplay_stage);
 			fracbox.render();
+			renderer.render(gameplay_stage);
 			break;
-		default:
-			// do nothing
+		case "splash":
+			renderer.render(splash_stage);
 			break;
 	}
 
