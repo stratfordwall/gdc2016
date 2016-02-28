@@ -96,6 +96,7 @@ Cake.prototype.startCutting = function() {
 		this.barline_sprite.tint = 0x00ffff;
 	}
 
+	this.knife_sprite.position.y = CAKE_TOP;
 	this.knife_sprite.alpha = 1;
 
 	this.knife_time = 0;
@@ -122,6 +123,7 @@ Cake.prototype.cut = function() {
 
 	if (distance < gamestate.margin) {
 		// successful cut
+		se_cutwell.play();
 		this.barline_sprite.tint = 0x00ff00;
 		gamestate.score += this.getScoreForDistance(distance) * gamestate.level;
 		gamestate.level += 1;

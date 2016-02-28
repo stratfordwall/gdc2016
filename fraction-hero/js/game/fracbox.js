@@ -26,6 +26,13 @@ function FractionBox() {
 FractionBox.prototype.display = function() {
 
 	this.frac_text.text = gamestate.target_text;
+	if (this.frac_text.text.length > 10) {
+		this.frac_text.font = "30px Fract";
+	} else if (this.frac_text.text.length > 6) {
+		this.frac_text.font = "40px Fract";
+	} else {
+		this.frac_text.font = "50px Fract";
+	}
 
 	this.text_x = 128 - this.frac_text.width / 2;
 	this.text_y = 576 - this.frac_text.height / 2;

@@ -79,6 +79,8 @@ GameState.prototype.restartGame = function() {
 	this.game_started = true;
 	this.ui_state = "instructions";
 
+	bgm_gameplay.play();
+
 }
 
 GameState.prototype.endGame = function() {
@@ -93,6 +95,9 @@ GameState.prototype.endGame = function() {
 
 	highscore_text.text = this.highscore;
 	yourscore_text.text = this.score;
+
+	bgm_gameplay.stop();
+	se_gameover.play();
 
 	change_splash_bg();
 
