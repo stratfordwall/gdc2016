@@ -7,6 +7,8 @@ function GameState() {
 	this.ui_state = "none";
 	this.ui_state_time = 0;
 
+	this.highscore = 0;
+
 	this.score = 0;
 	this.disp_score = 0;
 
@@ -35,6 +37,7 @@ function GameState() {
 	this.heart_sprites[2].anchor.set(0.5, 0.5);
 
 	this.instruction_bg = new PIXI.Sprite(instruction_texture);
+	this.instruction_bg.scale.set(0.25, 0.25);
 
 	gameplay_stage.addChild(this.background);
 
@@ -42,9 +45,6 @@ function GameState() {
 	gameplay_stage.addChild(this.heart_sprites[0]);
 	gameplay_stage.addChild(this.heart_sprites[1]);
 	gameplay_stage.addChild(this.heart_sprites[2]);
-
-	gameplay_stage.addChild(this.instruction_bg);
-
 
 }
 
@@ -73,6 +73,14 @@ GameState.prototype.endGame = function() {
 
 	this.ui_state = "gameover";
 	this.game_started = false;
+
+	if (this.score > this.highscore) {
+		this.highscore = this.score;
+	}
+
+	highscore_text.text = this.highscore;
+	yourscore_text.text = this.score;
+
 	change_splash_bg();
 
 }

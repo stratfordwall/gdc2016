@@ -7,6 +7,7 @@ function init_game() {
 	gamestate = new GameState();
 	cake = new Cake();
 	fracbox = new FractionBox();
+	gameplay_stage.addChild(gamestate.instruction_bg);
 
 	init_splash_stage();
 
