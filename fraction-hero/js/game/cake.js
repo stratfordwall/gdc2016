@@ -129,6 +129,7 @@ Cake.prototype.cut = function() {
 		gamestate.level += 1;
 	} else {
 		// failed cut
+		se_cutbad.play();
 		if (gamestate.level > 2) { gamestate.loseALife(); }
 		this.barline_sprite.tint = 0xff0000;
 	}

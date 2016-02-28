@@ -43,15 +43,15 @@ function frac_to_english(numerator, denominator){
 function random_frac(denom_min, denom_max){
 
 	var denominator, numerator, val_frac;
-	var fraction=[];
+	var fraction = [];
 
 	do {
-		denominator = Math.floor(Math.random() * (denom_max-denom_min) + denom_min);
+		denominator = Math.floor(Math.random() * (denom_max - denom_min) + denom_min);
 		numerator = Math.floor(Math.random() * (denominator - 1)) + 1;
 		denominator /= ea(numerator, denominator);
 		numerator /= ea(numerator, denominator);
 		val_frac = numerator / denominator;
-	} while ((val_frac > 0.9)||(val_frac < 0.1));
+	} while ((val_frac > 0.9) || (val_frac < 0.1));
 
 	fraction.push(numerator);
 	fraction.push(denominator);
@@ -74,8 +74,8 @@ function frac_gen(level){
 
 	var disp_frac, val_frac;
 	var fraction, numerator, denominator;
-	var denom_max = Math.min(level + 3, 20);
-	var denom_min = 3;
+	var denom_max = level + 3;
+	var denom_min = Math.min(level / 2 + 3, 20);
 	var addnewtype_req = 5; // we could add it to parameters too as frac_gen(level, addnewtype_req)
 
 	// assign the level to be randomized to one of five things

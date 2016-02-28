@@ -2,6 +2,7 @@ var sounds_loaded = {
 	11: false,
 	21: false,
 	22: false,
+	23: false,
 }
 // sounds that need to load before starting the game
 
@@ -33,6 +34,13 @@ var se_cutwell = new Howl({
 var se_gameover = new Howl({
 	onload: reg_sound(22),
 	src: "sound/game_end.wav",
+	loop: false,
+	volume: 0.7,
+});
+
+var se_cutbad = new Howl({
+	onload: reg_sound(23),
+	src: "sound/cut_bad.wav",
 	loop: false,
 	volume: 0.7,
 });

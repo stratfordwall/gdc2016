@@ -21,14 +21,14 @@ function init_splash_stage() {
 	gameover_bg.alpha = 0;
 	splash_stage.addChild(gameover_bg);
 
-	yourscore_text = new PIXI.extras.BitmapText("0", {font: "10px Numbers"});
-	yourscore_text.position.set(130, 560);
+	yourscore_text = new PIXI.extras.BitmapText("0", {font: "20px Fract"});
+	yourscore_text.position.set(130, 555);
 	yourscore_text.tint = 0;
 	yourscore_text.alpha = 0;
 	splash_stage.addChild(yourscore_text);
 
-	highscore_text = new PIXI.extras.BitmapText("0", {font: "10px Numbers"});
-	highscore_text.position.set(130, 580);
+	highscore_text = new PIXI.extras.BitmapText("0", {font: "20px Fract"});
+	highscore_text.position.set(130, 575);
 	highscore_text.tint = 0;
 	highscore_text.alpha = 0;
 	splash_stage.addChild(highscore_text);

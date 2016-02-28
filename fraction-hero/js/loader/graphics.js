@@ -14,6 +14,9 @@ graphics_loader
 	.add("background", "img/background.png")
 	.add("instructions", "img/instructions.png")
 
+	.add("cut", "img/cut.png")
+	.add("ofthecake", "img/ofthecake.png")
+
 	.on("complete", function(loader, resources) {
 		process_graphics(resources);
 	})
@@ -31,6 +34,9 @@ function process_graphics(resources) {
 	gameover_texture = resources["gameover"].texture;
 	background_texture = resources["background"].texture;
 	instruction_texture = resources["instructions"].texture;
+
+	cut_texture = resources["cut"].texture;
+	ofthe_texture = resources["ofthecake"].texture;
 
 	markAssetLoaded("graphics");
 

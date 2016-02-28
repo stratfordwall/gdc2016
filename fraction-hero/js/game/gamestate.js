@@ -23,21 +23,21 @@ function GameState() {
 	this.background.anchor.set(0, 0);
 	this.background.scale.set(2, 2);
 
-	this.score_text = new PIXI.extras.BitmapText("0", {font: "15px Numbers", align: "center"});
-	this.score_text.position.set(120, 1120);
+	this.score_text = new PIXI.extras.BitmapText("0", {font: "50px Fract", align: "center"});
+	this.score_text.position.set(120, 1100);
 
 	this.hud_sprite = new PIXI.Sprite(hud_texture);
 	this.hud_sprite.position.set(0, 1008);
 	this.hud_sprite.scale.set(2, 2);
 
 	this.heart_sprites = [new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture)];
-	this.heart_sprites[0].position.set(64, 1080);
+	this.heart_sprites[0].position.set(64, 1060);
 	this.heart_sprites[0].scale.set(2, 2);
 	this.heart_sprites[0].anchor.set(0.5, 0.5);
-	this.heart_sprites[1].position.set(128, 1080);
+	this.heart_sprites[1].position.set(128, 1060);
 	this.heart_sprites[1].scale.set(2, 2);
 	this.heart_sprites[1].anchor.set(0.5, 0.5);
-	this.heart_sprites[2].position.set(192, 1080);
+	this.heart_sprites[2].position.set(192, 1060);
 	this.heart_sprites[2].scale.set(2, 2);
 	this.heart_sprites[2].anchor.set(0.5, 0.5);
 
@@ -117,7 +117,9 @@ GameState.prototype.update = function(delta_ms) {
 	}
 
 	this.disp_score = this.disp_score * 0.8 + this.score * 0.2;
+
 	this.score_text.text = Math.round(this.disp_score);
+	this.score_text.position.x = 128 - this.score_text.width / 2;
 
 	if (this.ui_state == "cake") cake.update(delta_ms);
 	else if (this.ui_state == "fracbox") fracbox.update(delta_ms);

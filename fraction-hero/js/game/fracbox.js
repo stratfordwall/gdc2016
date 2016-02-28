@@ -14,12 +14,20 @@ function FractionBox() {
 
 	this.frac_text = new PIXI.extras.BitmapText("1/2", {font: "30px Fract", align: "left"});
 	this.frac_text.maxWidth = 200;
+	this.frac_text.tint = 0xff00ff;
 
 	this.cut_sprite = new PIXI.Sprite(cut_texture);
+	this.cut_sprite.scale.set(0.3, 0.3);
+	this.cut_sprite.position.set(108, 524);
+
 	this.ofthe_sprite = new PIXI.Sprite(ofthe_texture);
+	this.ofthe_sprite.scale.set(0.3, 0.3);
+	this.ofthe_sprite.position.set(64, 604);
 
 	gameplay_stage.addChild(this.box_g);
 	gameplay_stage.addChild(this.frac_text);
+	gameplay_stage.addChild(this.cut_sprite);
+	gameplay_stage.addChild(this.ofthe_sprite);
 
 }
 
@@ -35,11 +43,14 @@ FractionBox.prototype.display = function() {
 	}
 
 	this.text_x = 128 - this.frac_text.width / 2;
-	this.text_y = 576 - this.frac_text.height / 2;
+	this.text_y = 570 - this.frac_text.height / 2;
 	this.frac_text.position.x = this.text_x;
 	this.frac_text.position.y = this.text_y;
 	this.top = 512;
 	this.bottom = 640;
+
+	this.cut_sprite.alpha = 1;
+	this.ofthe_sprite.alpha = 1;
 
 }
 
