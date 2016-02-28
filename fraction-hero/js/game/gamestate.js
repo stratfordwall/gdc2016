@@ -1,4 +1,5 @@
 var heart_texture;
+var background_texture;
 
 function GameState() {
 
@@ -15,18 +16,34 @@ function GameState() {
 	this.target_text = "2/3";
 	this.target = 2/3;
 
+	this.background = new PIXI.Sprite(background_texture);
+	this.background.anchor.set(0, 0);
+	this.background.scale.set(2, 2);
+
 	this.score_text = new PIXI.extras.BitmapText("0", {font: "15px Numbers", align: "center"});
 	this.score_text.position.set(120, 1120);
 
 	this.heart_sprites = [new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture)];
-	this.heart_sprites[0].position.set(8, 1120);
-	this.heart_sprites[1].position.set(24, 1120);
-	this.heart_sprites[2].position.set(40, 1120);
+	this.heart_sprites[0].position.set(64, 1080);
+	this.heart_sprites[0].scale.set(2, 2);
+	this.heart_sprites[0].anchor.set(0.5, 0.5);
+	this.heart_sprites[1].position.set(128, 1080);
+	this.heart_sprites[1].scale.set(2, 2);
+	this.heart_sprites[1].anchor.set(0.5, 0.5);
+	this.heart_sprites[2].position.set(192, 1080);
+	this.heart_sprites[2].scale.set(2, 2);
+	this.heart_sprites[2].anchor.set(0.5, 0.5);
+
+	this.instruction_bg = new PIXI.Sprite(instruction_texture);
+
+	gameplay_stage.addChild(this.background);
 
 	gameplay_stage.addChild(this.score_text);
 	gameplay_stage.addChild(this.heart_sprites[0]);
 	gameplay_stage.addChild(this.heart_sprites[1]);
 	gameplay_stage.addChild(this.heart_sprites[2]);
+
+	gameplay_stage.addChild(this.instruction_bg);
 
 
 }
@@ -43,8 +60,12 @@ GameState.prototype.restartGame = function() {
 	this.target_text = "2/3";
 	this.target = 2/3;
 
+	this.heart_sprites[0].alpha = 1;
+	this.heart_sprites[1].alpha = 1;
+	this.heart_sprites[2].alpha = 1;
+
 	this.game_started = true;
-	this.nextCake();
+	this.ui_state = "instructions";
 
 }
 
@@ -52,6 +73,7 @@ GameState.prototype.endGame = function() {
 
 	this.ui_state = "gameover";
 	this.game_started = false;
+	change_splash_bg();
 
 }
 
@@ -83,6 +105,11 @@ GameState.prototype.nextCake = function() {
 	this.target = target[1];
 	this.target_text = target[0];
 
+	this.margin = 0.05;
+	if (this.level > 5) this.margin = 0.03;
+	if (this.level > 10) this.margin = 0.02;
+	if (this.level > 15) this.margin = 0.015;
+
 	this.ui_state = "fracbox";
 	fracbox.display();
 
@@ -92,6 +119,7 @@ GameState.prototype.nextCake = function() {
 GameState.prototype.loseALife = function() {
 
 	this.lives -= 1;
+	this.heart_sprites[this.lives].alpha = 0;
 	if (this.lives <= 0) {
 		this.endGame();
 	}
@@ -102,6 +130,11 @@ GameState.prototype.loseALife = function() {
 
 GameState.prototype.button = function() {
 
+	if (this.ui_state == "instructions") {
+		this.ui_state = "cake";
+		this.instruction_bg.alpha = 0;
+		this.nextCake();
+	}
 	if (this.ui_state == "cake") cake.cut();
 
 }

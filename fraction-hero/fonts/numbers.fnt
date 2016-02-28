@@ -20,12 +20,13 @@
 		<!-- ' " -->
 		<char id="39" x="57" y="9"  width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<char id="34" x="62" y="9"  width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
-		<!-- - . : / % -->
+		<!-- - . : / % + -->
 		<char id="45" x="51" y="17" width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<char id="46" x="56" y="17" width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<char id="58" x="61" y="17" width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<char id="47" x="66" y="17" width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<char id="37" x="67" y="9"  width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
+		<char id="43" x="71" y="17" width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<!-- alpha -->
 		<char id="76" x="56" y="1"  width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />
 		<char id="86" x="31" y="9"  width="4" height="5" xoffset="0" yoffset="0" xadvance="5" page="0" chnl="0" />

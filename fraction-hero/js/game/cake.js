@@ -4,6 +4,7 @@ var cake_texture;
 
 var knife_period = 7500;
 
+
 function Cake() {
 
 	this.ui_state = "cutting";
@@ -12,13 +13,13 @@ function Cake() {
 	this.judge_time = 0;
 
 	this.cake_sprite = new PIXI.Sprite(cake_texture);
-	this.cake_sprite.position.set(0, 576);
+	this.cake_sprite.position.set(10, 576);
 	this.cake_sprite.scale.set(0.25, 0.25);
 	this.cake_sprite.anchor.set(0, 0.5);
 	gameplay_stage.addChild(this.cake_sprite);
 
 	this.knife_sprite = new PIXI.Sprite(knife_texture);
-	this.knife_sprite.position.set(10, CAKE_TOP);
+	this.knife_sprite.position.set(0, CAKE_TOP);
 	this.knife_sprite.scale.set(0.25, 0.25);
 	this.knife_sprite.anchor.set(0, 0.444444444);
 	this.knife_sprite.alpha = 0;
@@ -103,6 +104,11 @@ Cake.prototype.startCutting = function() {
 }
 
 
+Cake.prototype.getScoreForDistance = function(distance) {
+	return Math.floor(interp_clamp(distance, 0.03, 0.005, 10, 100)) * 10;
+}
+
+
 Cake.prototype.cut = function() {
 
 	if (this.ui_state != "cutting") return false;
@@ -117,8 +123,8 @@ Cake.prototype.cut = function() {
 	if (distance < gamestate.margin) {
 		// successful cut
 		this.barline_sprite.tint = 0x00ff00;
+		gamestate.score += this.getScoreForDistance(distance) * gamestate.level;
 		gamestate.level += 1;
-		gamestate.score += Math.floor(10 / (Math.max(distance, 0.005) / 0.05)) * 10;
 	} else {
 		// failed cut
 		if (gamestate.level > 2) { gamestate.loseALife(); }

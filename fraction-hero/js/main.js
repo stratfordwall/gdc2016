@@ -8,6 +8,8 @@ function init_game() {
 	cake = new Cake();
 	fracbox = new FractionBox();
 
+	init_splash_stage();
+
 	start_game();
 
 }
