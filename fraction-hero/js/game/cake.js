@@ -21,7 +21,7 @@ function Cake() {
 	this.knife_sprite = new PIXI.Sprite(knife_texture);
 	this.knife_sprite.position.set(0, CAKE_TOP);
 	this.knife_sprite.scale.set(0.25, 0.25);
-	this.knife_sprite.anchor.set(0, 0.444444444);
+	this.knife_sprite.anchor.set(0, 0.5);
 	this.knife_sprite.alpha = 0;
 	gameplay_stage.addChild(this.knife_sprite);
 

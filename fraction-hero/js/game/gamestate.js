@@ -1,5 +1,6 @@
 var heart_texture;
 var background_texture;
+var hud_texture;
 
 function GameState() {
 
@@ -25,6 +26,10 @@ function GameState() {
 	this.score_text = new PIXI.extras.BitmapText("0", {font: "15px Numbers", align: "center"});
 	this.score_text.position.set(120, 1120);
 
+	this.hud_sprite = new PIXI.Sprite(hud_texture);
+	this.hud_sprite.position.set(0, 1008);
+	this.hud_sprite.scale.set(2, 2);
+
 	this.heart_sprites = [new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture), new PIXI.Sprite(heart_texture)];
 	this.heart_sprites[0].position.set(64, 1080);
 	this.heart_sprites[0].scale.set(2, 2);
@@ -40,6 +45,8 @@ function GameState() {
 	this.instruction_bg.scale.set(0.25, 0.25);
 
 	gameplay_stage.addChild(this.background);
+
+	gameplay_stage.addChild(this.hud_sprite);
 
 	gameplay_stage.addChild(this.score_text);
 	gameplay_stage.addChild(this.heart_sprites[0]);
@@ -63,6 +70,11 @@ GameState.prototype.restartGame = function() {
 	this.heart_sprites[0].alpha = 1;
 	this.heart_sprites[1].alpha = 1;
 	this.heart_sprites[2].alpha = 1;
+
+	cake.knife_sprite.alpha = 0;
+	cake.barline_sprite.alpha = 0;
+
+	this.instruction_bg.alpha = 1;
 
 	this.game_started = true;
 	this.ui_state = "instructions";
