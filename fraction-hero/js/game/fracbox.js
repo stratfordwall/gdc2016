@@ -16,8 +16,6 @@ function FractionBox() {
 	this.frac_text.maxWidth = 200;
 
 	this.cut_sprite = new PIXI.Sprite(cut_texture);
-	this.cut_sprite.position.set(120, )
-
 	this.ofthe_sprite = new PIXI.Sprite(ofthe_texture);
 
 	gameplay_stage.addChild(this.box_g);
@@ -28,6 +26,7 @@ function FractionBox() {
 FractionBox.prototype.display = function() {
 
 	this.frac_text.text = gamestate.target_text;
+
 	this.text_x = 128 - this.frac_text.width / 2;
 	this.text_y = 576 - this.frac_text.height / 2;
 	this.frac_text.position.x = this.text_x;
