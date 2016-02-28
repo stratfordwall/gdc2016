@@ -84,6 +84,7 @@ GameState.prototype.restartGame = function() {
 GameState.prototype.endGame = function() {
 
 	this.ui_state = "gameover";
+	this.ui_state_time = 0;
 	this.game_started = false;
 
 	if (this.score > this.highscore) {

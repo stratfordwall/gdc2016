@@ -9,7 +9,6 @@ function setup_rendering() {
 		{transparent: true, resolution: window.devicePixelRatio});
 	renderer.view.style.width = width;
 	renderer.view.style.height = height;
-	renderer.view.style.border = "1px solid white";
 
 	gameplay_stage = new PIXI.Container();
 	splash_stage = new PIXI.Container();

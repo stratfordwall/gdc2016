@@ -4,6 +4,7 @@ var fonts_loader = new PIXI.loaders.Loader();
 
 fonts_loader
 	.add("numbers", "fonts/numbers.fnt")
+	.add("scorefont", "fonts/scorefont.fnt")
 	.on("complete", function(loader, resources) {
 		console.log(resources);
 		process_fonts(resources);

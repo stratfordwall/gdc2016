@@ -1,3 +1,5 @@
+var cut_texture, ofthe_texture;
+
 function FractionBox() {
 
 	this.ui_state_time = 0;
@@ -10,9 +12,13 @@ function FractionBox() {
 	this.right = 240;
 	this.thickness = 4;
 
-	this.frac_text = new PIXI.extras.BitmapText("1/2", {font: "15px Numbers", align: "left"});
-	this.frac_text.position.set(50, 568);
+	this.frac_text = new PIXI.extras.BitmapText("1/2", {font: "30px Fract", align: "left"});
 	this.frac_text.maxWidth = 200;
+
+	this.cut_sprite = new PIXI.Sprite(cut_texture);
+	this.cut_sprite.position.set(120, )
+
+	this.ofthe_sprite = new PIXI.Sprite(ofthe_texture);
 
 	gameplay_stage.addChild(this.box_g);
 	gameplay_stage.addChild(this.frac_text);
@@ -22,9 +28,10 @@ function FractionBox() {
 FractionBox.prototype.display = function() {
 
 	this.frac_text.text = gamestate.target_text;
-	this.frac_text.position.y = 568;
 	this.text_x = 128 - this.frac_text.width / 2;
-	this.frac_text.position.x = this.text_x
+	this.text_y = 576 - this.frac_text.height / 2;
+	this.frac_text.position.x = this.text_x;
+	this.frac_text.position.y = this.text_y;
 	this.top = 512;
 	this.bottom = 640;
 
@@ -35,8 +42,9 @@ FractionBox.prototype.update = function(delta_ms) {
 	this.ui_state_time += delta_ms;
 
 	if (this.ui_state_time > 1700) {
+		this.cut_sprite.alpha = 0;
+		this.ofthe_sprite.alpha = 0;
 		// make the instruction appear at the top
-		this.frac_text.position.x = interp_clamp(this.ui_state_time, 1700, 2000, this.text_x, 32);
 		this.frac_text.position.y = interp_clamp(this.ui_state_time, 1700, 2000, 576, 32);
 		this.top = interp_clamp(this.ui_state_time, 1700, 2000, 512, 16);
 		this.bottom = interp_clamp(this.ui_state_time, 1700, 2000, 640, 128);
