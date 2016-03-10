@@ -17,6 +17,9 @@ function setup_rendering() {
 	// add the renderer view element to the DOM
 	document.body.appendChild(renderer.view);
 
+	// set focus on renderer to enable user input when embedded in an iframe
+	renderer.view.tabIndex = 0;
+	renderer.view.focus();
 }
 
 
